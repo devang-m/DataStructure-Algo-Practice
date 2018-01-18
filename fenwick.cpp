@@ -1,6 +1,7 @@
 //http://www.spoj.com/problems/FENTREE/
 #include <bits/stdc++.h>
 #define loop(i,n) for (int i = 0; i < n; i++)
+using namespace std;
 int n;
 int sum(int B[], int pos)
 {
