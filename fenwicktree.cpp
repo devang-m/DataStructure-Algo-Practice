@@ -1,25 +1,32 @@
 // http://www.spoj.com/problems/FENTREE/
 // Fenwick tree implementation for range sum query
+
+// http://www.spoj.com/problems/FENTREE/
 #include <bits/stdc++.h>
-#define loop(i,n) for (int i = 0; i < n; i++)
+#define LL long long
+#define loop(i,n) for(int i = 0; i < n; i++)
 using namespace std;
 int n;
-int sum(int B[], int pos)
+
+//Function to find the sum of elements from the start till the array position
+LL sum(LL tree[], int pos)
 {
-	int s=0;
+	LL s=0;
 	while(pos>0)
 	{
-		s+=B[pos];
-		pos-= pos & -pos;
+		s+=tree[pos];
+		pos-= pos & -pos; // To get the last bit and the subtracting it from the original to get the sum
 	}
 	return s;
 }
-void update(int B[],int pos,int val)
+
+//Function to update the tree
+void update(LL tree[],int pos,int val)
 {
 	while(pos<=n)
 	{
-		B[pos]+=val;
-		pos+= pos & -pos;
+		tree[pos]+=val;
+		pos+= pos & -pos; // To get the last bit and the adding it to the original to get the parent
 	}
 }
 int main()
@@ -31,33 +38,35 @@ int main()
 	{
 		cin >> A[i];
 	}
-	int B[n+1];
+	LL tree[n+1];
 	loop(i,n+1)
 	{
-		B[i]=0;
+		tree[i]=0;
 	}
 	//Constructing the tree
 	loop(i,n)
 	{
-		update(B,i+1,A[i]);
+		update(tree,i+1,A[i]);
 	}
 	cin >> q;
 	while(q--)
 	{
 		char choice;
-		int a,b,ans=0,val;
+		int a,b;
+		LL ans=0;
 		cin >> choice >> a >> b;
+		// Querying
 		if(choice == 'q')
 		{
-			ans+=sum(B,b);
-			ans-=sum(B,a);
+			ans+=sum(tree,b); // Adding till the end of the range
+			ans-=sum(tree,a-1); // Subtracting till the start of the range
 			cout << ans << endl;
 		}
+		//Updating an element
 		if(choice == 'u')
 		{
-			val=b-A[a-1];
-			A[a-1]=b;
-			update(B,a,val);
+			A[a-1]+=b;
+			update(tree,a,b);
 		}
 	}
 
