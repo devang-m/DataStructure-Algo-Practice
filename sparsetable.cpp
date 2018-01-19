@@ -20,6 +20,7 @@ int main()
 		{
 			table[i][0]=A[i];
 		}
+		// Making the sparse table
 		for(int i=1;i<18;i++)
 		{
 			for(int j=0;j<=n-pow(2,i);j++)
