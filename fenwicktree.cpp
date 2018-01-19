@@ -1,7 +1,5 @@
 // http://www.spoj.com/problems/FENTREE/
 // Fenwick tree implementation for range sum query
-
-// http://www.spoj.com/problems/FENTREE/
 #include <bits/stdc++.h>
 #define LL long long
 #define loop(i,n) for(int i = 0; i < n; i++)
