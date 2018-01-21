@@ -1,5 +1,6 @@
 //https://vjudge.net/contest/208188#problemB
 //Longest Common Subsequence for 2 sentences
+
 /*
 The input will contain several test cases. 
 Each test case consists of two texts. Each text is given as a sequence of lower-case words, separated by whitespace, but with no punctuation. 
