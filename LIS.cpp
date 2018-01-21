@@ -1,4 +1,4 @@
-//https://vjudge.net/contest/208188#problem
+//https://vjudge.net/contest/208188#problemA
 // Finding the length of the Longest Increasing Subsequence in an array in O(n log n)
 #include <iostream>
 #include <vector>
