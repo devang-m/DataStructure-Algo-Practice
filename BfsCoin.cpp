@@ -1,5 +1,4 @@
-//https://vjudge.net/contest/209520#problem/F
-#include <iostream>
+//http://poj.org/problem?id=3126
 #include <vector>
 #include <cmath>
 #include <queue>
