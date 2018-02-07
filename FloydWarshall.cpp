@@ -1,4 +1,4 @@
-//https://vjudge.net/contest/211037#problem/E
+//http://poj.org/problem?id=2240
 #include <iostream>
 #include <vector>
 #include <cmath>
