@@ -19,12 +19,14 @@ typedef pair<int, int> ipair;
 int c;
 bool ans;
 
+// Using a static Trie because the dynamic Trie was timing out due to a lot of new memory allocation
 struct TrieNode
 {
 	int child[10];
 	bool endOfWord;
 }node[100010];
 
+// Making a Trie and doing the needed check
 void maketrie(int root, char *str, bool f, int length)
 {
 	loop(i,0,length)
