@@ -16,6 +16,7 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> ipair;
 
+// Using a dynamic trie
 struct TrieNode
 {
 	TrieNode *child[26];
@@ -48,7 +49,6 @@ void insert(TrieNode *root, char* s)
 			cur->count+=1;
 			if(i==len-1)
 				cur->endOfWord = true;
-			//cout << cur->count << endl;
 		}
 	}
 }
@@ -67,7 +67,6 @@ string query(TrieNode *root, char* s)
 				continue;
 			if(cur->child[j] != NULL || (cur->child[s[i]-'a']->count>1) || cur->endOfWord)
 			{
-				//cout << i;
 				f=1;
 				break;
 			}
