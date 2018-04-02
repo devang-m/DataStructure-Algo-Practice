@@ -16,6 +16,7 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> ipair;
 
+// Fast exponentation
 ll expo(int a, int b)
 {
 	if(b==1)
@@ -50,6 +51,7 @@ int main()
 		A[0]=1;
 		loop(i,1,k)
 		{
+			// Calculating the binomial coefficient of the nth series using modular and mod multiplicative inverse 
 			A[i]= ((A[i-1]*(n+1-i)%MOD)%MOD * inverse[i])%MOD;
 		}
 		loop(i,1,k)
@@ -57,6 +59,5 @@ int main()
 			A[i] = (A[i]+A[i-1])%MOD;
 		}
 		printf("%lld\n", (power+MOD-A[k-1])%MOD);
-		//printf("%d\n", A[n][m]);
 	}
 }
