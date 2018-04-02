@@ -22,6 +22,7 @@ int main()
 	int t,m,n;
 	A[1][0]=1;
 	A[1][1]=1;
+	// Precomputing all the binomial coefficients
 	loop(i,2,2001)
 	{
 		A[i][0]=1;
