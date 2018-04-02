@@ -16,6 +16,7 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> ipair;
 
+// Calculating GCD of a and b using Euclidean method
 int gcd(int a, int b)
 {
 	if(b==1)
