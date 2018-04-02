@@ -18,6 +18,7 @@ typedef pair<int, int> ipair;
 
 bool f;
 
+// Calculating the a(Non negative number for a) and b values of given numbers x and y such that ax+by=1.
 void gcd(ll a, ll b, ll &x, ll &y)
 {
 	if(b==1)
