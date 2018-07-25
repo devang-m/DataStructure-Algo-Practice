@@ -9,38 +9,40 @@ Bessie can only support a charm bracelet whose weight is no more than M (1 ≤ M
 Given that weight limit as a constraint and a list of the charms with their weights and desirability rating, deduce the maximum possible sum of ratings.
 */
 #include <iostream>
-#include <vector>
-#include <cmath>
-#define loop(i,n) for(int i = 0; i < n; i++)
+#define loop(i,a,b) for(int i = a; i < b; i++)
 #define pb push_back
-typedef long long ll;
+#define mp make_pair
+#define INF 2147483647
+#define MOD 1000000007
 using namespace std;
+typedef long long ll;
+typedef pair<int, int> ipair;
 
 int main()
 {
-	int n,m;
+	ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+	long long n, m;
 	cin >> n >> m;
-	vector<pair<int,int> > v;
-	loop(i,n)
+	int w[n], d[n];
+	loop(i,0,n)
+		cin >> w[i] >> d[i];
+	int total[m+1];
+	loop(i,0,m+1)
+		total[i] = 0;
+	loop(i,0,n)
 	{
-		pair<int,int> p;
-		int a,b;
-		cin >> a >> b;
-		p = make_pair(a,b);
-		v.pb(p);
-	}
-	int A[12882]={0}; // A[i] to store the maximum sum of ratings for a particular weight i
-	loop(i,n)
-	{
-		for(int j=m;j>=0+v[i].first;j--)
+		for(int j = m; j>= w[i]; j--)
 		{
-			A[j]=max(A[j],A[j-v[i].first]+v[i].second);
+			if(total[j-w[i]]!=0 || j-w[i]==0)
+				total[j] = max(total[j], total[j-w[i]]+d[i]);
 		}
 	}
-	int ans=0;
-	loop(i,m+1)
+	int ans = 0;
+	loop(i,0,m+1)
 	{
-		ans=max(ans,A[i]);
+		//cout << total[i] << endl;
+		ans = max(ans,total[i]);
 	}
 	cout << ans << endl;
 }
